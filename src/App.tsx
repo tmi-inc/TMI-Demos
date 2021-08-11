@@ -1,25 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import GeoLocation from './demos/GeoLocation'
+import {FirestoreProvider} from '@react-firebase/firestore'
+import config from './firebase'
+import firebase from 'firebase';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FirestoreProvider {...config} firebase={firebase}>
+      <div className='App'>
+        <GeoLocation />
+      </div>
+    </FirestoreProvider>
   );
 }
 
