@@ -17,6 +17,8 @@ const LocationList = ({locations, sortFrom}: LocationListProps) => {
 
       setSortedLocations(sortByDistance(locations, sortFrom))
     }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortFrom])
 
   return (
