@@ -1,4 +1,7 @@
-export type firebaseConfig = {
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+export type FirebaseConfig = {
   apiKey: string;
   authDomain: string;
   projectId: string;
@@ -9,7 +12,7 @@ export type firebaseConfig = {
   databaseURL: string;
 };
 
-const config: firebaseConfig = {
+const config: FirebaseConfig = {
   apiKey: process.env.REACT_APP_GOOGLE_API_KEY as string,
   authDomain: "tmi-geocode.firebaseapp.com",
   projectId: "tmi-geocode",
@@ -20,4 +23,8 @@ const config: firebaseConfig = {
   databaseURL: "https://tmi-geocode-default-rtdb.firebaseio.com/",
 };
 
-export default config;
+const app = initializeApp(config);
+const db = getFirestore();
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default { db, app };

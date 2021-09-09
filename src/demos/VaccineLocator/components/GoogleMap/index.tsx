@@ -1,33 +1,23 @@
-import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
-import { isAbsolute } from "path";
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import React, { useEffect, useState } from "react";
-import googleApi from "../../../../api/googleApi";
 
 import tmiLogoIcon from "../../../../assets/images/icons/tmi_color_logo.svg";
 
-const GoogleMap = (props: any) => {
+const GoogleMap = ({ locationInfo, google }: any) => {
   const [places, setPlaces] = useState<any[] | null>(null);
 
-  useEffect(() => {
-    console.log(props);
-  }, [props]);
-
   const fetchPlaces = (mapProps: any, map: any) => {
-    console.log(mapProps);
-    console.log(map);
     const { google } = mapProps;
     const service = new google.maps.places.PlacesService(map);
 
     const request = {
       location: map.center,
-      radius: "10000",
+      radius: "3000",
       keyword: "covid-19 vaccine",
     };
 
     service.nearbySearch(request, (res: any, status: any) => {
       setPlaces(res);
-      console.log(res);
-      console.log(status);
     });
   };
 
@@ -35,11 +25,11 @@ const GoogleMap = (props: any) => {
     <>
       <Map
         //@ts-expect-error
-        zoom={13}
-        google={props.google}
+        zoom={14}
+        google={google}
         initialCenter={{
-          lat: 33.80904,
-          lng: -118.13688,
+          lat: locationInfo.geoLocation.latitude,
+          lng: locationInfo.geoLocation.longitude,
         }}
         containerStyle={{
           height: "92vh",
@@ -52,8 +42,8 @@ const GoogleMap = (props: any) => {
           name={"your position"}
           icon={{
             url: tmiLogoIcon,
-            anchor: new props.google.maps.Point(32, 32),
-            scaledSize: new props.google.maps.Size(54, 54),
+            anchor: new google.maps.Point(32, 32),
+            scaledSize: new google.maps.Size(54, 54),
           }}
         />
         {places &&
