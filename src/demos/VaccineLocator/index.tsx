@@ -1,9 +1,12 @@
 import React from "react";
+import GoogleMap from "./components/GoogleMap";
+import Header from "./components/Header";
 
 export default function VaccineLocator() {
   return (
     <div>
-      <h1>hello Vaccine Locator</h1>
+      <Header />
+      <GoogleMap />
     </div>
   );
 }
