@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import GoogleMap from "./components/GoogleMap";
+import StaticMap from "./components/StaticMap";
 import Header from "./components/Header";
 import useQuery from "../../hooks/useQuery";
 import firestoreApi from "../../api/firestoreApi";
-
-//types
-import { FirebaseLocation } from "../../types/firebase-types";
 
 export default function VaccineLocator() {
   const [locationInfo, setLocationInfo] = useState<FirebaseLocation | null>(
@@ -33,7 +30,7 @@ export default function VaccineLocator() {
     <div>
       <Header />
       {locationInfo ? (
-        <GoogleMap locationInfo={locationInfo} />
+        <StaticMap locationInfo={locationInfo} />
       ) : (
         <h1>...loading...</h1>
       )}

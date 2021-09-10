@@ -1,6 +1,5 @@
 import firebase from "../firebase";
 import { query, collection, getDocs, getDoc, where } from "firebase/firestore";
-import { FirebaseLocation } from "../types/firebase-types";
 
 const allLocationsRef = collection(firebase.db, "allLocations");
 
