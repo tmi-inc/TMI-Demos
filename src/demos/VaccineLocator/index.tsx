@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import StaticMap from "./components/StaticMap";
-import Header from "./components/Header";
+import SideBar from "./components/SideBar";
 import useQuery from "../../hooks/useQuery";
 import firestoreApi from "../../api/firestoreApi";
 
@@ -27,8 +27,8 @@ export default function VaccineLocator() {
   }, []);
 
   return (
-    <div>
-      <Header />
+    <div style={{ display: "flex" }}>
+      <SideBar />
       {locationInfo ? (
         <StaticMap locationInfo={locationInfo} />
       ) : (
