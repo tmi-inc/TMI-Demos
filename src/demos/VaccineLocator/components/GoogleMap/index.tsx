@@ -1,5 +1,5 @@
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import tmiLogoIcon from "../../../../assets/images/icons/tmi_color_logo.svg";
 

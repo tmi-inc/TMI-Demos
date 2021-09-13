@@ -1,8 +1,8 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //demos
-import GeoLocation from "./demos/GeoLocation";
+// import GeoLocation from "./demos/GeoLocation";
 import VaccineLocator from "./demos/VaccineLocator";
 
 function App() {
