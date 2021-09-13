@@ -18,7 +18,10 @@ const StyledStaticMapWrapper = styled.div`
 export default function StaticMap({ locationInfo }: StaticMapPropTypes) {
   return (
     <StyledStaticMapWrapper>
-      <img src={locationInfo?.static_map} alt="" />
+      <img
+        src={locationInfo?.static_map}
+        alt="google map of nearby vaccine locations"
+      />
     </StyledStaticMapWrapper>
   );
 }
