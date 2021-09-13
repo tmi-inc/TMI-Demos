@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const StyledStaticMapWrapper = styled.div`
@@ -16,10 +16,6 @@ const StyledStaticMapWrapper = styled.div`
 `;
 
 export default function StaticMap({ locationInfo }: StaticMapPropTypes) {
-  useEffect(() => {
-    console.log(locationInfo);
-  }, []);
-
   return (
     <StyledStaticMapWrapper>
       <img src={locationInfo?.static_map} alt="" />
