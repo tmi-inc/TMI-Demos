@@ -32,7 +32,7 @@ export default function LocationErrorFallback({ error }: any) {
       return alert("You must include a location before reloading the page");
 
     window.location.replace(
-      `http://localhost:3000/vaccine-locator?location=${input}`
+      `${process.env.REACT_APP_BASE_URL}/vaccine-locator?location=${input}`
     );
   };
 
