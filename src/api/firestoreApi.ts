@@ -14,6 +14,7 @@ const getAllLocations = async () => {
 const getLocationBySlug = async (slug: string) => {
   let location;
   const q = query(allLocationsRef, where("slug", "==", slug));
+
   const snapShot = await getDocs(q);
   snapShot.forEach((doc: any) => (location = doc.data()));
 
